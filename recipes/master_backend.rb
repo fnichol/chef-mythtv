@@ -22,3 +22,11 @@ include_recipe "mysql::server"
 %w{mythtv-backend-master}.each do |pkg|
   package pkg
 end
+
+service "mythtv-backend" do
+  if (platform?("ubuntu") && node.platform_version.to_f >= 10.04)
+    provider Chef::Provider::Service::Upstart
+  end
+  supports :status => true, :restart => true
+  action :nothing
+end
