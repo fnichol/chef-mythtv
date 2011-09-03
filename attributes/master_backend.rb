@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: mythtv
-# Recipe:: default
+# Attributes:: master_backend
 #
-# Copyright 2010, Fletcher Nichol
+# Copyright 2011, Fletcher Nichol
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,3 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+node.set['mythtv']['master_backend']['pkgs'] = %w{mythtv-backend-master}
+
+node.set['mythtv']['master_backend']['pkgs'] = %w{mythweb}
